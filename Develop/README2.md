@@ -1,8 +1,8 @@
-# ReadMeGenerator
+# ReadMe Generator
 
 ### Description
 
-This app creates a professional readme file when all questions prompted have been answered.
+This application creates a readme file based on answers submitted by the user. 
 
 ![badge](https://img.shields.io/badge/license-lgpl-brightorange)
 ### Table of Contents
@@ -17,25 +17,25 @@ This app creates a professional readme file when all questions prompted have bee
 
   _Steps to install this application:_
 
-  For testing purposes, I have indicated yes. 
+  Indicated Yes for tutorial purposes. 
   
   ### Usage
 
   _How to use:_
 
-  When prompted with questions, answer as accurately as possible. Once all questions have been answered, a readme file will be generated. 
+  Answer all prompted questions. Upon completion, a readme file will be generated. 
   
   ### Contribution
 
   _Guidelines for contribution to project:_
 
-  Sky is the limit. 
+  Sky is the limit.
   
   ### Testing
 
   _How to test the application:_
 
-  How ever you would like to test. 
+  Any test you want. 
 
 _If you have any questions or would like to contact me:_
 
@@ -49,7 +49,7 @@ Email: [user@email.com](mailto:user@email.com)
 
 ### License
 
-_Project License: bsd-2-clause,lgpl_
+_Project License: apache-2.0,bsd-3-clause,mit_
 
 To understand this license, please view the [license description]( https://opensource.org/licenses#:~:text=GNU%20Library%20or%20%22Lesser%22%20General%20Public%20License%20(LGPL)).
 
