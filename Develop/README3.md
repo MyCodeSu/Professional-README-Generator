@@ -1,8 +1,8 @@
-# ReadMe Generator
+# Readme Generator
 
 ### Description
 
-Generates readme file upon completion of answering prompted questions.
+Generates readme file upon completion of prompted questions. 
 
 ![badge](https://img.shields.io/badge/license-lgpl-brightorange)
 ### Table of Contents
@@ -17,29 +17,29 @@ Generates readme file upon completion of answering prompted questions.
 
   _Steps to install this application:_
 
-  indicated yes for tutorial purposes.
+  indicated yes for tutorial purposes
   
   ### Usage
 
   _How to use:_
 
-  Answer all questions, readme file will be generated.
+  Answer all prompted questions. Readme file will be generated upon completion. 
   
   ### Contribution
 
   _Guidelines for contribution to project:_
 
-  Sky is the limit.
+  Sky is the limit. 
   
   ### Testing
 
   _How to test the application:_
 
-  How ever you would like to test it.
+  Any way you want. 
 
 _If you have any questions or would like to contact me:_
 
-By email.
+By email
 
 _Contact Information:_
 
@@ -49,7 +49,7 @@ Email: [user@email.com](mailto:user@email.com)
 
 ### License
 
-_Project License: apache-2.0,bsd-2-clause,lgpl_
+_Project License: apache-2.0,bsd-2-clause,mit_
 
 To understand this license, please view the [license description]( https://opensource.org/licenses#:~:text=GNU%20Library%20or%20%22Lesser%22%20General%20Public%20License%20(LGPL)).
 

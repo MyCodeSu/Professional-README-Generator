@@ -191,7 +191,7 @@ async function init() {
         const myMarkdown = generateMarkdown(userAnswers);
         console.log(myMarkdown);
         //write the readme file after the markdown is made
-        await createReadMe('README2.md', myMarkdown);
+        await createReadMe('README3.md', myMarkdown);
 
     } catch (error) {
         console.log('An error has occured. ' + error);
