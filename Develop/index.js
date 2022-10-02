@@ -18,7 +18,7 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
-const generateMarkdown = require('./Develop/utils/generateMarkdown.js');
+const generateMarkdown = require('./utils/generateMarkdown.js');
 const util = require('util');
 
 // TODO: Create an array of questions for user input
@@ -38,7 +38,7 @@ const questions = [{
 {
     type: 'input',
     name: 'description',
-    message: 'Describe your repository? (Required)',
+    message: 'Please provide a description of your repository? (Required)',
     validate: nameInput => {
         if (nameInput) {
             return true;
