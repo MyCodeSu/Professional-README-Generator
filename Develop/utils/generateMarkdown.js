@@ -163,7 +163,7 @@ GitHub: [${data.username}](https://github.com/${data.username})
 
 Email: [${data.email}](mailto:${data.email})`;
 
-markdownTemplate +=
+readmeTemplate +=
 
 `
 
