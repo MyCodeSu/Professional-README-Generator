@@ -1,11 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(data) { }
-
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {
+function generateMarkdown(data) {
 
   // Variables
   let selectedLicense = `${data.license}`;
@@ -42,24 +35,150 @@ function renderLicenseLink(license) {
   };
   if (selectedLicense === 'Common Development and Distribution License') {
     selectedLicense = 'Common Development and Distribution License';
-    licenseLink ='https://opensource.org/licenses#:~:text=Common%20Development%20and%20Distribution%20License';
+    licenseLink = 'https://opensource.org/licenses#:~:text=Common%20Development%20and%20Distribution%20License';
   };
   if (selectedLicense === 'Eclipse Public License version 2.0') {
     selectedLicense = 'Eclipse Public License version 2.0';
     licenseLink = 'https://opensource.org/licenses#:~:text=Eclipse%20Public%20License%20version%202.0';
   };
-}
 
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) { }
 
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
+// // TODO: Create a function that returns the license section of README
+// // If there is no license, return an empty string
+// function renderLicenseSection(license) { }
+
+// // TODO: Create a function to generate markdown for README
+// function generateMarkdown(data) {
+//   return `# ${data.title}
+
+// `;
+// }
+
+let readmeTemplate =
+
+  `# ${data.title}
+
+### Description
+
+${data.description}
+
+![badge](https://img.shields.io/badge/license-${selectedLicense}-brightorange)
+`
+
+// table of content
+
+let tableOfContent =
+  `### Table of Contents`;
+if (data.installation) {
+  tableOfContent +=
+    `
+  * [Installation](#installation)`
+};
+if (data.instructions) {
+  tableOfContent +=
+    `
+  * [Usage](#usage)`
+};
+if (data.contribution) {
+  tableOfContent +=
+    `
+  * [Contribution](#contribution)`
+};
+if (data.testing) {
+  tableOfContent +=
+    `
+  * [Testing](#testing)`
+};
+
+readmeTemplate += tableOfContent;
+
+// contact info; license
+readmeTemplate +=
+  `
+* [Questions](#questions)`;
+
+readmeTemplate +=
+  `
+* [License](#license)
+`;
+
+
+// content body
+
+// installation
+if (data.installation) {
+  readmeTemplate += 
+  `
+  ### Installation
+
+  _Steps to install this application:_
+
+  ${data.installation}`
+};
+
+// usage
+if (data.instructions) {
+  readmeTemplate +=
+  `
+  
+  ### Usage
+
+  _How to use:_
+
+  ${data.instructions}`
+};
+
+// contributions
+if (data.contribution) {
+  readmeTemplate +=
+  `
+  
+  ### Contribution
+
+  _Guidelines for contribution to project:_
+
+  ${data.contribution}`
+};
+
+// testing
+if (data.testing) {
+  readmeTemplate +=
+  `
+  
+  ### Testing
+
+  _How to test the application:_
+
+  ${data.testing}`
+};
+
+// contact info
+readmeTemplate +=
+`
+
+_If you have any questions or would like to contact me:_
+
+${data.questions}
+
+_Contact Information:_
+
+GitHub: [${data.username}](https://github.com/${data.username})
+
+Email: [${data.email}](mailto:${data.email})`;
+
+markdownTemplate +=
+
+`
+
+### License
+
+_Project License: ${data.license}_
+
+To understand this license, please view the [license description](${licenseLink}).
 
 `;
-}
+return readmeTemplate;
 
+}
 module.exports = generateMarkdown;
