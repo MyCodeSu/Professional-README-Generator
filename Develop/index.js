@@ -1,5 +1,5 @@
 // GIVEN a command-line application that accepts user input
-// WHEN I am prompted for information about my application repository
+// WHEN I am prompted for information about my application repository 
 // THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
 // WHEN I enter my project title
 // THEN this is displayed as the title of the README
@@ -175,7 +175,15 @@ const questions = [{
 
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, error => {
+        if(error) {
+            return console.log('An error has occurred: '+ error);
+        }
+    })
+}
+
+const createReadMe = util.promisify(writeToFile);
 
 // TODO: Create a function to initialize app
 function init() { }
