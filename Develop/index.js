@@ -59,123 +59,123 @@ const questions = [{
     message: 'Please list installation instructions.',
     // the <when> is a condition that allows the user to input an installation process if installation is required.
     when: ({ confirmInstallation }) => {
-      if (confirmInstallation) {
-        return true;
-      } else {
-        return false;
-      }
+        if (confirmInstallation) {
+            return true;
+        } else {
+            return false;
+        }
     }
-  },
-  {
-  type: 'confirm',
-  name: 'confirmUsage',
-  message: 'Would you like to provide instructions on how to use your application?'
-  },
-  { //if confirmed
+},
+{
+    type: 'confirm',
+    name: 'confirmUsage',
+    message: 'Would you like to provide instructions on how to use your application?'
+},
+{ //if confirmed
     type: 'input',
     name: 'instructions',
     message: 'Please provide instructions on how to use your application.',
     when: ({ confirmUsage }) => {
-      if (confirmUsage) {
-        return true;
-      } else {
-        return false;
-      }
+        if (confirmUsage) {
+            return true;
+        } else {
+            return false;
+        }
     }
-  },
-  {
+},
+{
     type: 'confirm',
     name: 'confirmContribution',
     message: 'Will other developers be granted permission to contribute to your repository?'
-  },
-  {
+},
+{
     type: 'input',
     name: 'contribution',
     message: 'Please describe how other developers can contribute to your project.',
     when: ({ confirmContribution }) => {
-      if (confirmContribution) {
-        return true;
-      } else {
-        return false;
-      }
+        if (confirmContribution) {
+            return true;
+        } else {
+            return false;
+        }
     }
-  },
-  {
+},
+{
     type: 'confirm',
     name: 'testConfirm',
     message: 'Is testing available?'
-  },
-  {
+},
+{
     type: 'input',
     name: 'testing',
     message: 'Please describe how users may test your application.',
     when: ({ testConfirm }) => {
-      if (testConfirm) {
-        return true;
-      } else {
-        return false;
-      }
+        if (testConfirm) {
+            return true;
+        } else {
+            return false;
+        }
     }
-  },
-  { //checkbox that allows license choice
+},
+{ //checkbox that allows license choice
     type: 'checkbox',
     name: 'license',
     message: 'Please choose a license type.',
     choices: ['apache-2.0', 'bsd-3-clause', 'bsd-2-clause', 'gpl', 'lgpl', 'mit', 'mpl-2.0', 'epl-2.0'],
     validate: nameInput => {
-      if (nameInput) {
-        return true;
-      } else {
-        console.log('Please select a license type.');
-        return false;
-      }
+        if (nameInput) {
+            return true;
+        } else {
+            console.log('Please select a license type.');
+            return false;
+        }
     }
-  },
-  {
+},
+{
     type: 'input',
     name: 'username',
     message: 'What is your GitHub username? (Required)',
     validate: nameInput => {
-      if (nameInput) {
-        return true;
-      } else {
-        console.log('Please enter your GitHub username.');
-        return false;
-      }
+        if (nameInput) {
+            return true;
+        } else {
+            console.log('Please enter your GitHub username.');
+            return false;
+        }
     }
-  },
-  {
+},
+{
     type: 'input',
     name: 'email',
     message: 'What is your email address? (Required)',
     validate: nameInput => {
-      if (nameInput) {
-        return true;
-      } else {
-        console.log('Please enter your email.');
-        return false;
-      }
+        if (nameInput) {
+            return true;
+        } else {
+            console.log('Please enter your email.');
+            return false;
+        }
     }
-  },
-  {
+},
+{
     type: 'input',
     name: 'questions',
     message: 'Please provide instructions on how you prefer to be contacted.',
     validate: (nameInput) => {
-      if (nameInput) {
-        return true;
-      } else {
-        return false;
-      }
+        if (nameInput) {
+            return true;
+        } else {
+            return false;
+        }
     }
-  }];
+}];
 
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, error => {
-        if(error) {
-            return console.log('An error has occurred: '+ error);
+        if (error) {
+            return console.log('An error has occurred: ' + error);
         }
     })
 }
@@ -183,7 +183,20 @@ function writeToFile(fileName, data) {
 const createReadMe = util.promisify(writeToFile);
 
 // TODO: Create a function to initialize app
-function init() { }
+async function init() {
+    try {
+        const userAnswers = await inquirer.prompt(questions);
+        console.log('Thank you! The current data is being processed into your README.md: ', userAnswers);
+        // get markdown template from generateMarkdown.js passing the answers as parameter
+        const myMarkdown = generateMarkdown(userAnswers);
+        console.log(myMarkdown);
+        //write the readme file after the markdown is made
+        await createReadMe('README1.md', myMarkdown);
+
+    } catch (error) {
+        console.log('An error has occured. ' + error);
+    }
+};
 
 // Function call to initialize app
 init();
