@@ -1,3 +1,5 @@
-# Professional README Generator Starter Code
+Go to Develop Directory for project content. 
 
-[How to create a Professional README](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)
+Walkthrough Tutorial Link:
+
+https://drive.google.com/file/d/1NwqfoZWF650VGepxAObrCp8Fzki67488/view?usp=sharing
